@@ -1,6 +1,10 @@
+import { AdSlot } from './AdSlot'
+
 export function ContentBand() {
   return (
     <section className="content-band">
+      <AdSlot className="ad-slot--content" />
+
       <h2 id="how-to">Free Invoice Generator</h2>
       <p>
         Bill Store is a free online invoice maker for freelancers, shops, and small businesses.
@@ -49,7 +53,15 @@ export function ContentBand() {
             device unless you choose to share the downloaded file yourself.
           </p>
         </details>
+        <details>
+          <summary>Do you show ads?</summary>
+          <p>
+            Bill Store may display Google AdSense ads to keep the invoice generator free. See our{' '}
+            <a href="/privacy.html">Privacy Policy</a> for details.
+          </p>
+        </details>
       </div>
     </section>
   )
 }
+

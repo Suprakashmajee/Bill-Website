@@ -14,7 +14,7 @@ export function Header() {
           <a href="#how-to">How it works</a>
           <a href="#faq">FAQ</a>
           <a className="btn btn-primary" href="#invoice">
-            Create invoice
+            Create Invoice
           </a>
         </nav>
       </div>
