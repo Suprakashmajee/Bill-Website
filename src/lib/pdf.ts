@@ -4,14 +4,20 @@ export async function downloadInvoicePdf(element: HTMLElement, fileName: string)
     import('jspdf'),
   ])
 
-  const canvas = await html2canvas(element, {
-    scale: 2,
-    useCORS: true,
-    backgroundColor: '#ffffff',
-    logging: false,
-  })
+  element.classList.add('is-capturing-pdf')
+  let canvas
+  try {
+    canvas = await html2canvas(element, {
+      scale: 1.75,
+      useCORS: true,
+      backgroundColor: '#ffffff',
+      logging: false,
+    })
+  } finally {
+    element.classList.remove('is-capturing-pdf')
+  }
 
-  const imgData = canvas.toDataURL('image/png')
+  const imgData = canvas.toDataURL('image/jpeg', 0.92)
   const pdf = new jsPDF({
     orientation: 'portrait',
     unit: 'pt',
@@ -27,13 +33,13 @@ export async function downloadInvoicePdf(element: HTMLElement, fileName: string)
   let heightLeft = imgHeight
   let position = margin
 
-  pdf.addImage(imgData, 'PNG', margin, position, usableWidth, imgHeight)
+  pdf.addImage(imgData, 'JPEG', margin, position, usableWidth, imgHeight)
   heightLeft -= pageHeight - margin * 2
 
   while (heightLeft > 0) {
     position = margin - (imgHeight - heightLeft)
     pdf.addPage()
-    pdf.addImage(imgData, 'PNG', margin, position, usableWidth, imgHeight)
+    pdf.addImage(imgData, 'JPEG', margin, position, usableWidth, imgHeight)
     heightLeft -= pageHeight - margin * 2
   }
 

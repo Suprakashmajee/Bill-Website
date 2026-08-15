@@ -728,3 +728,21 @@ a:hover {
     border-radius: 0;
   }
 }
+
+.invoice-paper.is-capturing-pdf .logo-actions,
+.invoice-paper.is-capturing-pdf .adjustment-controls,
+.invoice-paper.is-capturing-pdf .icon-btn,
+.invoice-paper.is-capturing-pdf .btn-linkish,
+.invoice-paper.is-capturing-pdf .logo-upload:not(:has(img)) {
+  display: none !important;
+}
+
+.invoice-paper.is-capturing-pdf .ghost-input,
+.invoice-paper.is-capturing-pdf .ghost-textarea,
+.invoice-paper.is-capturing-pdf .items-table input,
+.invoice-paper.is-capturing-pdf .meta-row input,
+.invoice-paper.is-capturing-pdf .paid-input,
+.invoice-paper.is-capturing-pdf .adj-input {
+  border-color: transparent !important;
+  background: transparent !important;
+}
