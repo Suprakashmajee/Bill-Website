@@ -29,3 +29,4 @@ dist-ssr
 api/config.local.php
 public/api/config.local.php
 .env
+dist.zip
