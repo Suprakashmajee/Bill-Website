@@ -25,3 +25,7 @@ dist-ssr
 
 .netlify
 .wrangler
+
+api/config.local.php
+public/api/config.local.php
+.env

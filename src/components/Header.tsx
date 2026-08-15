@@ -13,6 +13,7 @@ export function Header() {
         <nav className="header-nav" aria-label="Primary">
           <a href="#how-to">How it works</a>
           <a href="#faq">FAQ</a>
+          <a href="#support">Support</a>
           <a className="btn btn-primary" href="#invoice">
             Create Invoice
           </a>

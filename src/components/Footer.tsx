@@ -4,12 +4,13 @@ export function Footer() {
       <div className="site-footer__inner">
         <div>© {new Date().getFullYear()} Bill Store · bill-store.com</div>
         <div>
-          <a href="/privacy.html">Privacy</a>
+          <a href="#support">Support</a>
           {' · '}
-          Free invoice generator for modern businesses
+          <a href="mailto:support@bill-store.com">support@bill-store.com</a>
+          {' · '}
+          <a href="/privacy.html">Privacy</a>
         </div>
       </div>
     </footer>
   )
 }
-

@@ -1,0 +1,13 @@
+<?php
+/**
+ * Local/server secrets for Bill Store MySQL.
+ * Replace placeholders after creating the database in Hostinger hPanel.
+ */
+return [
+    'db_host' => 'localhost',
+    'db_name' => 'DB_NAME_PLACEHOLDER',
+    'db_user' => 'DB_USER_PLACEHOLDER',
+    'db_pass' => 'DB_PASS_PLACEHOLDER',
+    'support_email' => 'support@bill-store.com',
+    'cors_origin' => 'https://bill-store.com',
+];

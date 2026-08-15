@@ -4,6 +4,7 @@ import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { InvoiceEditor } from './components/InvoiceEditor'
 import { Sidebar } from './components/Sidebar'
+import { SupportSection } from './components/SupportSection'
 import { useInvoice } from './hooks/useInvoice'
 import { downloadInvoicePdf } from './lib/pdf'
 import './index.css'
@@ -24,10 +25,28 @@ export default function App() {
   const paperRef = useRef<HTMLElement>(null)
   const [downloading, setDownloading] = useState(false)
 
+  const persistInvoice = async () => {
+    try {
+      await fetch('/api/save-invoice.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...invoice,
+          subtotal: totals.subtotal,
+          total: totals.total,
+          balanceDue: totals.balanceDue,
+        }),
+      })
+    } catch {
+      // Saving is optional — PDF download should still succeed offline.
+    }
+  }
+
   const handleDownload = async () => {
     if (!paperRef.current || downloading) return
     setDownloading(true)
     try {
+      await persistInvoice()
       const name = `invoice-${invoice.invoiceNumber || 'bill-store'}.pdf`
       await downloadInvoicePdf(paperRef.current, name)
     } catch (error) {
@@ -67,6 +86,7 @@ export default function App() {
         </div>
 
         <ContentBand />
+        <SupportSection />
       </main>
 
       <Footer />
