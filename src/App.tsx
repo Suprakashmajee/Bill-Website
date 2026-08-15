@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { AdSenseScript } from './components/AdSenseScript'
 import { ContentBand } from './components/ContentBand'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
@@ -59,6 +60,7 @@ export default function App() {
 
   return (
     <div className="app-shell">
+      <AdSenseScript />
       <Header />
 
       <main>
