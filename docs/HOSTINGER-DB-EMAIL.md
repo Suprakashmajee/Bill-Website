@@ -1,10 +1,18 @@
 # Manual Hostinger: MySQL + support@bill-store.com
 
-If the agent cannot pass Hostinger 2FA, complete these steps in hPanel, then reply with the DB credentials (or the 2FA code).
+## 1. MySQL (done)
+Created in hPanel for bill-store.com:
 
-## 1. MySQL
-Databases → MySQL Databases → create DB + user (ALL privileges).
-Save: host, database name, username, password.
+| Field | Value |
+| --- | --- |
+| Database | `u116887753_billstore` |
+| User | `u116887753_billstore` |
+| Host (PHP) | `localhost` |
+| Remote host | `srv1978.hstgr.io` |
+
+Tables `support_messages` and `invoices` are created. Live check: https://bill-store.com/api/migrate.php
+
+Password is stored only in `public_html/api/config.local.php` on the server (not in git).
 
 ## 2. Email
 Emails → create **support@bill-store.com**.
